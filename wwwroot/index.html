@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ISS Live Tracker</title>
+
+    <!-- Leaflet is the library we'll use to display the map. -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        defer>
+    </script>
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main class="container">
+        <header>
+            <p class="eyebrow">SPACE MONITORING</p>
+            <h1>ISS Live Tracker</h1>
+            <p>Track the International Space Station around Earth.</p>
+        </header>
+
+        <section class="map-card">
+            <h2>Current ISS position</h2>
+
+            <!-- Leaflet will display the map inside this element. -->
+            <div id="map"></div>
+
+            <p id="status">Loading ISS position...</p>
+        </section>
+    </main>
+</body>
+</html>
