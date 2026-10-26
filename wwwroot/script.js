@@ -29,6 +29,16 @@ async function getISSPosition() {
 
         const latitude = data.latitude;
         const longitude = data.longitude;
+        
+        const altitude = data.altitude;
+        const speed = data.velocity;
+        
+        document.getElementById("altitude").textContent =
+          altitude.toFixed(1) + " km";
+
+        document.getElementById("speed").textContent =
+          Math.round(speed).toLocaleString("en-US") + " km/h";
+
 
         if (issMarker === null) {
             issMarker = L.marker([latitude, longitude]).addTo(map);
