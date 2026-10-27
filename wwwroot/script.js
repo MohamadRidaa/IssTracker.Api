@@ -40,12 +40,27 @@ async function getISSPosition() {
           Math.round(speed).toLocaleString("en-US") + " km/h";
 
 
-        if (issMarker === null) {
-            issMarker = L.marker([latitude, longitude]).addTo(map);
-            map.setView([latitude, longitude], 4);
+        
+        const popupContent = `
+           <strong>International Space Station</strong><br>
+         Latitude: ${latitude.toFixed(2)}°<br>
+         Longitude: ${longitude.toFixed(2)}°<br>
+         Altitude: ${altitude.toFixed(1)} km<br>
+         Speed: ${Math.round(speed).toLocaleString("en-US")} km/h
+                        `;
+
+         if (issMarker === null) {
+           issMarker = L.marker([latitude, longitude]).addTo(map);
+
+           issMarker.bindPopup(popupContent);
+
+           map.setView([latitude, longitude], 4);
         } else {
             issMarker.setLatLng([latitude, longitude]);
-        }
+
+            issMarker.setPopupContent(popupContent);
+     }
+
 
         // Update the text under the map.
         document.getElementById("status").textContent =
