@@ -91,3 +91,37 @@ header p {
         grid-template-columns: 1fr;
     }
 }
+
+.connection-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.connection-info p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#connection-status {
+    font-weight: 600;
+}
+
+#connection-status[data-state="connecting"] {
+    color: #64748b;
+}
+
+#connection-status[data-state="connected"] {
+    color: #15803d;
+}
+
+#connection-status[data-state="error"] {
+    color: #dc2626;
+}
+
+#last-updated {
+    color: #64748b;
+}
