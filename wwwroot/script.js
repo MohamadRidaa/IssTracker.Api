@@ -59,18 +59,42 @@ async function getISSPosition() {
             issMarker.setLatLng([latitude, longitude]);
 
             issMarker.setPopupContent(popupContent);
-     }
+              }
 
-
-        // Update the text under the map.
         document.getElementById("status").textContent =
             "Latitude: " + latitude.toFixed(2) +
             " | Longitude: " + longitude.toFixed(2);
+          
+    
+         const connectionStatus =
+          document.getElementById("connection-status");
+
+          connectionStatus.textContent =
+          "● Live — Receiving ISS data";
+
+            connectionStatus.dataset.state = "connected";
+
+         const lastUpdated =
+             document.getElementById("last-updated");
+
+         const currentTime = new Date().toLocaleTimeString("en-GB");
+
+           lastUpdated.textContent =
+              "Last successful update: " + currentTime;
 
     } catch (error) {
-        console.error("Error getting ISS position:", error);
-        document.getElementById("status").textContent =
-            "Unable to load ISS position.";
+        
+              const connectionStatus =
+                 document.getElementById("connection-status");
+
+              connectionStatus.textContent =
+                 "● Unable to refresh ISS data";
+ 
+              connectionStatus.dataset.state = "error";
+
+                console.error("Error getting ISS position:", error);
+                   document.getElementById("status").textContent =
+                 "Unable to load ISS position.";
     }
 }
 
