@@ -86,11 +86,29 @@ header p {
     font-weight: 700;
 }
 
+
 @media (max-width: 600px) {
+    .container {
+        padding: 16px 12px;
+    }
+
+    .map-card {
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    #map {
+        height: 320px;
+    }
+
     .stats {
         grid-template-columns: 1fr;
     }
 }
+
 
 .connection-info {
     display: flex;
