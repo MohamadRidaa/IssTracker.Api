@@ -17,13 +17,9 @@ let issMarker = null;
 
 async function getISSPosition() {
     try {
-
-        const response = await fetch(
-         "https://api.wheretheiss.at/v1/satellites/25544",
-       {
+        const response = await fetch("/api/iss", {
             signal: AbortSignal.timeout(10000)
-       }
-);
+        });
 
 
         if (!response.ok) {
